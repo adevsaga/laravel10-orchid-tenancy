@@ -33,6 +33,39 @@ class PlatformProvider extends OrchidServiceProvider
      */
     public function menu(): array
     {
+        $menu = [];
+
+        $menu = array_merge(
+            $this->adminMenu(),
+            $this->tenantMenu()
+        );
+
+        return $menu;
+    }
+
+    /**
+     * Register permissions for the application.
+     *
+     * @return ItemPermission[]
+     */
+    public function permissions(): array
+    {
+        $permisisons = [];
+
+        if (empty(tenant())) {
+            $permisisons[] = ItemPermission::group(__('Admin'))
+                ->addPermission('platform.admin.tenants', __('Tenants'));
+        }
+
+        $permisisons[] = ItemPermission::group(__('System'))
+            ->addPermission('platform.systems.roles', __('Roles'))
+            ->addPermission('platform.systems.users', __('Users'));
+
+        return $permisisons;
+    }
+
+    private function adminMenu(): array
+    {
         return [
             Menu::make('Get Started')
                 ->icon('bs.book')
@@ -66,6 +99,12 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.example.cards')
                 ->divider(),
 
+            Menu::make(__('Tenants'))
+                ->icon('bs.people')
+                ->route('platform.admin.tenants')
+                ->permission('platform.admin.tenants')
+                ->title(__('ADMIN Controls')),
+
             Menu::make(__('Users'))
                 ->icon('bs.people')
                 ->route('platform.systems.users')
@@ -92,17 +131,8 @@ class PlatformProvider extends OrchidServiceProvider
         ];
     }
 
-    /**
-     * Register permissions for the application.
-     *
-     * @return ItemPermission[]
-     */
-    public function permissions(): array
+    private function tenantMenu(): array
     {
-        return [
-            ItemPermission::group(__('System'))
-                ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
-        ];
+        return [];
     }
 }

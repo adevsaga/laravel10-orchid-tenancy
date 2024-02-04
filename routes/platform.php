@@ -29,7 +29,7 @@ Route::screen('profile', UserProfileScreen::class)
         ->parent('platform.index')
         ->push(__('Profile'), route('platform.profile')));
 
-
+include 'platform/admin/tenant.php';
 include 'platform/examples.php';
 include 'platform/system/roles.php';
 include 'platform/system/user.php';
