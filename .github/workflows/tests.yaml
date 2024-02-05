@@ -26,13 +26,12 @@ jobs:
 
     env:
       APP_URL: "http://127.0.0.1:8000"
-      DB_USERNAME: root
-      DB_PASSWORD: root
+      DB_CONNECTION: pgsql
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
       MAIL_MAILER: log
-      # The hostname used to communicate with the PostgreSQL service container
-      POSTGRES_HOST: localhost
-      # The default PostgreSQL port
-      POSTGRES_PORT: 5432
 
     steps:
       - uses: actions/checkout@v4
