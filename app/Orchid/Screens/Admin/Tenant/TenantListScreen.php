@@ -81,6 +81,6 @@ class TenantListScreen extends Screen
     {
         Tenant::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('Tenant was removed'));
+        Toast::info(__('Tenant was removed.'));
     }
 }

@@ -103,7 +103,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('bs.people')
                 ->route('platform.admin.tenants')
                 ->permission('platform.admin.tenants')
-                ->title(__('ADMIN Controls')),
+                ->title(__('Admin Controls')),
 
             Menu::make(__('Users'))
                 ->icon('bs.people')

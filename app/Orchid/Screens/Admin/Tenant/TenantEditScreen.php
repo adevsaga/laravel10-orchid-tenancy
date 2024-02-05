@@ -216,7 +216,7 @@ class TenantEditScreen extends Screen
     {
         $tenant->delete();
 
-        Toast::info(__('Tenant was removed'));
+        Toast::info(__('Tenant was removed.'));
 
         return redirect()->route('platform.admin.tenants');
     }
