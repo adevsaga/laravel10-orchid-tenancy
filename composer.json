@@ -14,7 +14,9 @@
         "stancl/tenancy": "^3.7"
     },
     "require-dev": {
+        "doctrine/dbal": "*",
         "fakerphp/faker": "^1.9.1",
+        "laravel/dusk": "^7.12",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",

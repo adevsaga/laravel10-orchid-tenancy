@@ -19,5 +19,10 @@ Acompanhe [aqui](https://github.com/adevsaga/laravel10-orchid-tenancy/wiki) algu
 
 ## Bibliotecas
 
+### Laravel
 - [Orchid](https://orchid.software/)
 - [Tenancy](https://tenancyforlaravel.com/)
+
+### PHP
+
+- php8.2-zip
